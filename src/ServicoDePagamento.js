@@ -21,7 +21,7 @@
 //  }
 //
 
-class ServicoDePagamento {
+export class ServicoDePagamento {
     pagar(CodigoBarras, Empresa, Valor) {
 
         var categoria = 'padrão'
@@ -51,7 +51,9 @@ class ServicoDePagamento {
 
     }
     consultarUltimoPagamento (){
-        
+        var ultimopagamento = this.listaPagamentos [this.listaPagamentos.length-1]
+        return ultimopagamento
+
     }
 
 
