@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "test": "mocha"
-},
+    "test": "mocha"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "lint": "^1.2.2",
     "mocha": "^11.7.5"
   }
 }
