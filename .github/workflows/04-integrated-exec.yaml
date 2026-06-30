@@ -63,9 +63,39 @@ jobs:
       - name: Rodando testes unitários
         run: yarn run test
 
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: [inspecao]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Instalando Browsers do Playwright
+        run: yarn playwright install
+
+      - name: Executando testes E2E
+        run: yarn run test
+
+      - name: Salvando relatórios de testes
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          path: ./playwright-report
+          name: Relatório de Testes E2E
+
   deploy:
     runs-on: ubuntu-latest
-    needs: [unidade]
+    needs: [unidade, e2e-tests]
 
     steps:
       - name: Simulação de Deploy

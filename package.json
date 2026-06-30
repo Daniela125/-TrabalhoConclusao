@@ -13,5 +13,8 @@
   "dependencies": {
     "lint": "^1.2.2",
     "mocha": "^11.7.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
   }
 }
