@@ -46,10 +46,6 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      # instalação dos Browsers do Playwright
-      - name: Instalando Browsers do Playwright
-        run: yarn playwright install
-
       # executar os testes e2e
       - name: Executando testes e2e
         run: yarn run test
@@ -58,5 +54,5 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
-          path: ./playwright-report
+          path: ./report
           name: Relatório de Testes E2E
